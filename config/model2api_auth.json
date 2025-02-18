@@ -1,0 +1,66 @@
+{
+    "llama3.1-8b": {
+        "base_url": "https://api.deepinfra.com/v1/openai",
+        "api_key": "DEEPINFRA_API_KEY"
+    },
+    "llama3.1-70b": {
+        "base_url": "https://api.deepinfra.com/v1/openai",
+        "api_key": "DEEPINFRA_API_KEY"
+    },
+    "llama3.3-70b": {
+        "base_url": "https://api.deepinfra.com/v1/openai",
+        "api_key": "DEEPINFRA_API_KEY"
+    },
+    "llama3.1-405b": {
+        "base_url": "https://api.deepinfra.com/v1/openai",
+        "api_key": "DEEPINFRA_API_KEY"
+    },
+    "llama3.1-nemo-70b":{
+        "base_url": "https://api.deepinfra.com/v1/openai",
+        "api_key": "DEEPINFRA_API_KEY"
+    },
+    "qwen2.5-72b": {
+        "base_url": "https://api.deepinfra.com/v1/openai",
+        "api_key": "DEEPINFRA_API_KEY"
+    },
+    "qwen2.5-7b": {
+        "base_url": "https://api.deepinfra.com/v1/openai",
+        "api_key": "DEEPINFRA_API_KEY"
+    },
+    "deepseek-r1": {
+        "base_url": "https://api.deepinfra.com/v1/openai",
+        "api_key": "DEEPINFRA_API_KEY"
+    },
+    "deepseek-v3": {
+        "base_url": "https://api.deepinfra.com/v1/openai",
+        "api_key": "DEEPINFRA_API_KEY"
+    },
+    "gpt_4o": {
+        "base_url": "https://api.openai.com/v1",
+        "api_key": "OPENAI_API_KEY"
+    },
+    "gpt_o1": {
+        "base_url": "https://api.openai.com/v1",
+        "api_key": "OPENAI_API_KEY"
+    },
+    "gpt_4o_mini": {
+        "base_url": "https://api.openai.com/v1",
+        "api_key": "OPENAI_API_KEY"
+    },
+    "gpt_o3_mini": {
+        "base_url": "https://api.openai.com/v1",
+        "api_key": "OPENAI_API_KEY"
+    },
+    "glm-4-plus":{
+        "api_key": "ZHIPU_API_KEY"
+    },
+    "glm-4-long":{
+        "api_key": "ZHIPU_API_KEY"
+    },
+    "glm-4-flash":{
+        "api_key": "ZHIPU_API_KEY"
+    },
+    "glm-zero-preview":{
+        "api_key": "ZHIPU_API_KEY"
+    }
+}
