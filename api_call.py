@@ -6,17 +6,12 @@ def generate_with_api(
         api_key, 
         base_url = "https://api.deepseek.com", 
         path = "deepseek-reasoner",
-        args = None
+        max_tokens=50,
     ):
-    assert args is not None, "args must be provided for API generation, this assertion fails due to legacy code"
     # print(f"API call with path: {path}")
     from openai import OpenAI
     success = False
     timeout = 600
-    max_tokens = 50
-    if args.cot:
-        max_tokens = 30000
-        timeout = 3000
     if "DeepSeek-R1" in path or "o3-mini" in path or "deepseek-reasoner" in path or "deepseek-r1" in path: # reasoning models
         # max_tokens = 2500
         max_tokens = 30000
@@ -30,7 +25,6 @@ def generate_with_api(
                 messages=messages,
                 timeout=timeout,
                 max_completion_tokens=max_tokens,
-                stream=stream
             )
             success = True
         except Exception as e:
@@ -87,7 +81,8 @@ def generate_with_api_azure(
         messages: list, 
         api_key, 
         base_url, 
-        path
+        path,
+        max_tokens=50
     ):
     from openai import AzureOpenAI
     client = AzureOpenAI( api_key=api_key,api_version='2023-05-15', azure_endpoint=base_url)
@@ -98,7 +93,7 @@ def generate_with_api_azure(
                 model=path,
                 messages=messages,
                 timeout=600,
-                max_completion_tokens=50,
+                max_completion_tokens=max_tokens,
             )
             success = True
         except Exception as e:
@@ -125,6 +120,7 @@ if __name__ == "__main__":
     
     # model = "glm-4-long"
     model = "llama3.1-8b"
+    # model = "gpt_o3_mini_2233ai"
     response = None
     usage = None
     
@@ -132,14 +128,14 @@ if __name__ == "__main__":
         response, usage = generate_with_api(
             messages=messages, 
             api_key=model2api_auth[model]["api_key"], 
+            base_url=model2api_auth[model]["base_url"],
             path=model2path[model],
-            max_tokens=50
+            max_tokens=50 # Be aware that max_tokens doesn't apply to reasoning models like DeepSeek-R1 and o3-mini
         )
     elif model2api_auth[model]["api_type"] == "zhipu":
         response, usage = generate_with_api_zhipu(
             messages=messages, 
-            api_key=model2api_auth[model]["api_key"], 
-            base_url=model2api_auth[model]["base_url"], 
+            api_key=model2api_auth[model]["api_key"],  
             path=model2path[model],
             max_tokens=50
         )
@@ -152,7 +148,7 @@ if __name__ == "__main__":
             max_tokens=50
         )
     
-    print(f"Response is {response}")
+    print(f"Response is: {response}")
     print(f"Input tokens count: {usage.prompt_tokens}")
     print(f"Output tokens count: {usage.completion_tokens}")
     print(f"Usage struct: {usage}")

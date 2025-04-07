@@ -76,7 +76,7 @@
     },
     "gpt_o3_mini_2233ai": {
         "base_url": "https://api.gptsapi.net/v1",
-        "api_key": "OPENAI_API_KEY",
+        "api_key": "2233AI_API_KEY",
         "api_type": "openai"
     },
     "gpt_o1": {
